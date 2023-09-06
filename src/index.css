@@ -1,0 +1,55 @@
+
+
+body {
+  background-color: #0E86D4;
+}
+
+.title {
+   margin: 1em 0em;
+  text-align: center;
+  color: #fff;
+  
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  position: relative;
+  color: #fff;
+  background-color: #003060 ;
+  margin: 2em 3em;
+  margin: 0 auto;
+  padding: 3em;
+  font-size: 18px;
+  align-items: center;
+  box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.31);
+  
+}
+
+.EMSform {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  position: relative;
+  color: #fff;
+  background-color: #003060 ;
+  margin: 2em 3em;
+  margin: 0 auto;
+  padding: 3em;
+  font-size: 18px;
+  box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.31);
+  
+}
+
+.welcome2 :nth-child(2) {
+  color: #2ab2f0;
+  font-weight: 600;
+}
+
+.btn2 {
+  width: 47%;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-top: 1.5em;
+}
