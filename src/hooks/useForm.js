@@ -18,10 +18,6 @@ export const useForm = (initialState = {}) => {
     setFormState(initialState)
   };
   
-  
-  
-  
-  
  return {
     ...formState,
     formState,
