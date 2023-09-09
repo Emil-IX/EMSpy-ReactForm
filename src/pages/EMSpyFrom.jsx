@@ -4,23 +4,24 @@ import { InputsGenerate } from '../components/inputsGenerate';
 import { TextsTareaGenerate } from '../components/TextsTareaGenerate';
 
 export const EMSpyFrom = () => {
+    
 
+   const initialState =  {
+        email:"",
+        CC:"",
+        affair:"",
+        message:""
 
-     const {formState, onInputChange, onResetForm, email, affair, message, CC } = useForm(
-        {
-            email:"",
-            CC:"",
-            affair:"",
-            message:""
+    }
 
-        }
-     );
+     const {formState, setFormState , onInputChange, onResetForm, email, affair, message, CC } = useForm(initialState);
 
      const [Email, setEmail] = useState({ valid: null});
      const [EmailCC, setEmailCC] = useState({ valid: true, optional: true});
      const [Affair, setAffair] = useState({ valid: null});
      const [Messagge, setMessagge] = useState({ valid: true});
      const [formValid, setformValid] = useState(null)
+     const [formValid2, setformValid2] = useState(null)
 
      const expretionss= {
         user: /^[aer-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
@@ -31,9 +32,17 @@ export const EMSpyFrom = () => {
         tell: /^\d{7,14}$/ // 7 a 14 numeros.
     }
 
+    const clearAlert = (setFormValid) => {
+        setTimeout(() => {
+            setFormValid(null)
+        }, 2800);
+    }
+
     const onSubmit = (e) => {
         e.preventDefault()
         console.log(EmailCC.valid)
+
+        let aprube = true;
 
         if (Email.valid &&
             EmailCC.valid && 
@@ -41,7 +50,19 @@ export const EMSpyFrom = () => {
             Messagge.valid
             ) {
 
-        console.log('enviendo...')
+            setFormState(initialState)
+            setEmail({valid: null})
+            setAffair({valid: null})
+            setformValid(true)
+            clearAlert(setformValid);
+            console.log('enviendo...')
+    
+        }else {
+
+            setformValid2(true)
+            clearAlert(setformValid2);
+       
+
         }
      
   
@@ -106,6 +127,16 @@ export const EMSpyFrom = () => {
         />
 
             
+       { 
+         formValid && <div className="alert alert-success text-center p-1" role="alert">
+         Send success!
+        </div>
+       }
+       { 
+         formValid2 && <div className="alert alert-danger text-center p-1" role="alert">
+         Something is wrong, try again
+        </div>
+       }
 
         <div className='d-flex'>
             <button type='submit' className='btn btn-primary btn2'>Send</button>
