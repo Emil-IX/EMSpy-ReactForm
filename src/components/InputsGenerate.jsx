@@ -1,6 +1,6 @@
 
 
-export const InputsGenerate = ({ valid ,changeInstate ,label,type, placeHolder,name, value, onChange,errorAlert, regularExpression  }) => {
+export const InputsGenerate = ({ optionalField,valid ,changeInstate ,label,type, placeHolder,name, value, onChange,errorAlert, regularExpression  }) => {
 
     
     const validateInstate = () => {
@@ -8,14 +8,23 @@ export const InputsGenerate = ({ valid ,changeInstate ,label,type, placeHolder,n
         if (regularExpression.test(value)) {
             changeInstate({ valid: true})
             console.log('valid')
-        }else {
+       } else {
             changeInstate({ valid: false})
-            console.log('invalid')
-        }
+            console.log('invalid')       
     }
    }
+}
+
+
+    const optionalFieldCon = () => {
     
-    
+        if ( optionalField && value === ""  && value.length < 1) {
+        changeInstate({ valid: true})
+        } 
+    }
+
+   
+      
   return (
 
     <div className='mb-3'>
@@ -27,13 +36,15 @@ export const InputsGenerate = ({ valid ,changeInstate ,label,type, placeHolder,n
             name={name}
             value={ value }
             onChange={ onChange }
-            onKeyUp={validateInstate}
-            onBlur={validateInstate}
+            onKeyUp={optionalField === "true" ? optionalFieldCon :validateInstate }
+            onBlur={optionalField === "true" ? optionalFieldCon :validateInstate}
             />
-            { (valid === false) 
+            { (valid === false  && value.length > 0 ) 
              ? true &&  <div className ="alert alert-danger" role="alert"> {errorAlert} </div> 
-             : false &&  <div className ="alert alert-danger" role="alert"> {errorAlert} </div> 
-            }
+             : delete (<div className ="alert alert-danger" role="alert"> {errorAlert} </div>)
+             
+            }        
+           
         </div>
   )
 }

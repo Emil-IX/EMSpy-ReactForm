@@ -53,3 +53,7 @@ body {
   margin: 0 auto;
   margin-top: 1.5em;
 }
+
+.suberror {
+  display: none;
+}

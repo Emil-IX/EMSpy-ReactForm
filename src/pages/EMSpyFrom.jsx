@@ -17,14 +17,15 @@ export const EMSpyFrom = () => {
      );
 
      const [Email, setEmail] = useState({ valid: null});
-     const [EmailCC, setEmailCC] = useState({ valid: null});
+     const [EmailCC, setEmailCC] = useState({ valid: true});
      const [Affair, setAffair] = useState({ valid: null});
-     const [Messagge, setMessagge] = useState({ valid: null});
+     const [Messagge, setMessagge] = useState({ valid: true});
+     const [formValid, setformValid] = useState(null)
 
      const expretionss= {
         user: /^[aer-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
         name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-        message:  /^.{4,200}$/, // Letras y espacios, pueden llevar acentos.
+        message:  /^.{0,200}$/, // Letras y espacios, pueden llevar acentos.
         password: /^.{4,12}$/, // 4 a 12 digitos.
         email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
         tell: /^\d{7,14}$/ // 7 a 14 numeros.
@@ -32,14 +33,19 @@ export const EMSpyFrom = () => {
 
     const onSubmit = (e) => {
         e.preventDefault()
+        console.log(EmailCC.valid)
+
+        if (Email.valid &&
+            EmailCC.valid &&
+            Affair.valid &&
+            Messagge.valid
+            ) {
 
         console.log('enviendo...')
-    }
+        }
      
-// console.log(Email)
-// console.log(EmailCC)
-// console.log(Affair)
-// console.log(Messagge)
+  
+    }
 
   return (
     <>
@@ -73,6 +79,8 @@ export const EMSpyFrom = () => {
               changeInstate={setEmailCC}
               valid={EmailCC.valid}
               errorAlert="Email invalid, tray again"
+              optionalField="true"
+              
         />
         <InputsGenerate
               label="Affair"
@@ -84,7 +92,7 @@ export const EMSpyFrom = () => {
               regularExpression={expretionss.name}
               changeInstate={setAffair}
               valid={Affair.valid}
-              errorAlert="Affair is empty or it has few letter"
+              errorAlert="Affair is empty or it has few letter or it has a number"
         />
         <TextsTareaGenerate 
             label="Message"
