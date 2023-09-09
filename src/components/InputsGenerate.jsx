@@ -8,22 +8,16 @@ export const InputsGenerate = ({ optionalField,valid ,changeInstate ,label,type,
         if (regularExpression.test(value)) {
             changeInstate({ valid: true})
             console.log('valid')
+       } else if(optionalField && value.length <= 0  ){
+            changeInstate({ valid: true})
        } else {
             changeInstate({ valid: false})
-            console.log('invalid')       
-    }
+            console.log('invalid')    
+        }
    }
 }
 
-
-    const optionalFieldCon = () => {
-    
-        if ( optionalField && value === ""  && value.length < 1) {
-        changeInstate({ valid: true})
-        } 
-    }
-
-   
+  
       
   return (
 
@@ -36,13 +30,12 @@ export const InputsGenerate = ({ optionalField,valid ,changeInstate ,label,type,
             name={name}
             value={ value }
             onChange={ onChange }
-            onKeyUp={optionalField === "true" ? optionalFieldCon :validateInstate }
-            onBlur={optionalField === "true" ? optionalFieldCon :validateInstate}
+            onKeyUp={validateInstate }
+            onBlur={validateInstate}
             />
             { (valid === false  && value.length > 0 ) 
              ? true &&  <div className ="alert alert-danger" role="alert"> {errorAlert} </div> 
              : delete (<div className ="alert alert-danger" role="alert"> {errorAlert} </div>)
-             
             }        
            
         </div>

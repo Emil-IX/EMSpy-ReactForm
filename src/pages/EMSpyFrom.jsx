@@ -17,7 +17,7 @@ export const EMSpyFrom = () => {
      );
 
      const [Email, setEmail] = useState({ valid: null});
-     const [EmailCC, setEmailCC] = useState({ valid: true});
+     const [EmailCC, setEmailCC] = useState({ valid: true, optional: true});
      const [Affair, setAffair] = useState({ valid: null});
      const [Messagge, setMessagge] = useState({ valid: true});
      const [formValid, setformValid] = useState(null)
@@ -36,7 +36,7 @@ export const EMSpyFrom = () => {
         console.log(EmailCC.valid)
 
         if (Email.valid &&
-            EmailCC.valid &&
+            EmailCC.valid && 
             Affair.valid &&
             Messagge.valid
             ) {
@@ -49,9 +49,9 @@ export const EMSpyFrom = () => {
 
   return (
     <>
-    <h1 className='title '>EMSpyForm</h1>
+    <h1 className='title animate__animated animate__fadeInDown'>EMSpyForm</h1>
 
-    <div className='EMSform border border-5'>
+    <div className='EMSform border border-5 animate__animated animate__fadeIn'>
 
        <form action="" onSubmit={ onSubmit}>
 
@@ -79,7 +79,7 @@ export const EMSpyFrom = () => {
               changeInstate={setEmailCC}
               valid={EmailCC.valid}
               errorAlert="Email invalid, tray again"
-              optionalField="true"
+              optionalField={EmailCC.optional}
               
         />
         <InputsGenerate
