@@ -1,8 +1,8 @@
-
+// This part can be used to create you own inputs(texttarea)
 
 export const TextsTareaGenerate = ({valid, changeInstate ,label,type, placeHolder,name, value, onChange,errorAlert, regularExpression  }) => {
 
-
+//validations to  see if there are regularexpresion   
   const validateInstate = () => {
     if (regularExpression) {
         if (regularExpression.test(value)) {

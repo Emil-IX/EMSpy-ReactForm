@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 
 export const Welcome = () => {
+  //Welcome Page.
   return (
     <>
         <h1 className='title animate__animated animate__fadeInDown'>¡Welcome!</h1>

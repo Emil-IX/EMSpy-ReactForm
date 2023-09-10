@@ -1,8 +1,8 @@
-
+// This part can be used to create you own inputs
 
 export const InputsGenerate = ({ optionalField,valid ,changeInstate ,label,type, placeHolder,name, value, onChange,errorAlert, regularExpression  }) => {
 
-    
+ //validations to  see if there are regularexpresion   
     const validateInstate = () => {
     if (regularExpression) {
         if (regularExpression.test(value)) {
@@ -16,16 +16,14 @@ export const InputsGenerate = ({ optionalField,valid ,changeInstate ,label,type,
         }
    }
 }
-
-  
-      
+   
   return (
 
     <div className='mb-3'>
         <label className='form-label'>{label}</label>
         <input 
             type={type}
-            className='form-control'
+            className='form-control'  //insert your input props
             placeholder={placeHolder}
             name={name}
             value={ value }

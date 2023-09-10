@@ -13,9 +13,10 @@ export const EMSpyFrom = () => {
         message:""
 
     }
-
+    //use for to create yours form fields
      const {formState, setFormState , onInputChange, onResetForm, email, affair, message, CC } = useForm(initialState);
 
+    // states for final validations
      const [Email, setEmail] = useState({ valid: null});
      const [EmailCC, setEmailCC] = useState({ valid: true, optional: true});
      const [Affair, setAffair] = useState({ valid: null});
@@ -23,6 +24,7 @@ export const EMSpyFrom = () => {
      const [formValid, setformValid] = useState(null)
      const [formValid2, setformValid2] = useState(null)
 
+     //use or insert regular expretions here
      const expretionss= {
         user: /^[aer-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
         name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -38,6 +40,7 @@ export const EMSpyFrom = () => {
         }, 2800);
     }
 
+    //This function send the final resuls of the form
     const onSubmit = (e) => {
         e.preventDefault()
         console.log(EmailCC.valid)

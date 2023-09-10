@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+
+//Can be used to add form field in an easy way 
 export const useForm = (initialState = {}) => {
   
   const [formState, setFormState] = useState(initialState)
