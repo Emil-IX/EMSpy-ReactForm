@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 export const SideBar = () => {
   return (
       
-        <div className='sidebar container-sm col d-flex flex-column'>
+        <div className='sidebar  col'>
 
           <h1 className='title--white ms-4 '>EMSpyForm</h1>
 

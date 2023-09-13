@@ -89,15 +89,16 @@ export const RegisterFrom= () => {
 
     <SideBar />
 
-    <div className='principal container-sm col-10 '> 
+    <div className='principal container col-xs-12 col-sm-9'> 
 
         <h1 className='title animate__animated animate__fadeInDown'>EMSpyForm</h1>
     
-        <div className='EMSform container-sm  border border-5 animate__animated animate__fadeIn'>
+        <div className='EMSform container  border border-5 animate__animated animate__fadeIn'>
 
-            <form onSubmit={ onSubmit}>
+            <form onSubmit={ onSubmit} className='row g-3 center align-item-center '>
 
                 <InputsGenerate
+                    classN = "col-12  col-xl-6"
                     label="User name"
                     type="text"
                     placeHolder="Example05"
@@ -111,6 +112,7 @@ export const RegisterFrom= () => {
                     
                 />
                 <InputsGenerate
+                    classN = "col-12  col-xl-6"
                     label="Name"
                     type="text"
                     placeHolder="Emsy"
@@ -125,6 +127,7 @@ export const RegisterFrom= () => {
                 />
                 
                 <InputsGenerate
+                    classN = "col-12  col-xl-6"
                     label="Email"
                     type="email"
                     placeHolder="Example@gmail.com"
@@ -137,8 +140,24 @@ export const RegisterFrom= () => {
                     errorAlert="Email invalid, tray again"
                     
                 />
+
+                <InputsGenerate
+                   classN = "col-12  col-xl-6"
+                    label="Tell"
+                    type="number"
+                    placeHolder="809-000-00000"
+                    name="tell"
+                    value={ tell }
+                    onChange={ onInputChange }
+                    regularExpression={expretionss.tell}
+                    changeInstate={setTell}
+                    valid={Tell.valid}
+                    errorAlert="Tell invalid, tray again"
+                    
+                />
             
                 <InputsGenerate
+                    classN = "col-12  col-xl-6"
                     label="Password"
                     type="password"
                     placeHolder=""
@@ -153,6 +172,7 @@ export const RegisterFrom= () => {
                 />
 
                 <InputsGenerate
+                   classN = "col-12  col-xl-6"
                     label="Repeat password"
                     type="password"
                     placeHolder=""
@@ -168,28 +188,16 @@ export const RegisterFrom= () => {
 
                
 
-                <InputsGenerate
-                    label="Tell"
-                    type="number"
-                    placeHolder="809-000-00000"
-                    name="tell"
-                    value={ tell }
-                    onChange={ onInputChange }
-                    regularExpression={expretionss.tell}
-                    changeInstate={setTell}
-                    valid={Tell.valid}
-                    errorAlert="Tell invalid, tray again"
-                    
-                />
+              
             
                     
             { 
-                formValid && <div className="alert alert-success text-center p-1" role="alert">
-              Login success!
+                formValid && <div className="alert alert-success text-center p-1 m-0" role="alert">
+                Login success!
                 </div>
             }
             { 
-                formValid2 && <div className="alert alert-danger text-center p-1" role="alert">
+                formValid2 && <div className="alert alert-danger text-center p-1  "  role="alert">
                 One or more fields are invalid
                 </div>
             }

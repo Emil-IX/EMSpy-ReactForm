@@ -80,7 +80,7 @@ export const EMSpyFrom = () => {
 
     <SideBar />
 
-    <div className='principal container-sm col-10 '> 
+    <div className='principal principal container col-xs-12 col-sm-9'> 
 
         <h1 className='title animate__animated animate__fadeInDown'>EMSpyForm</h1>
     
