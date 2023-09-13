@@ -1,21 +1,46 @@
 // This part can be used to create you own inputs
 
-export const InputsGenerate = ({ optionalField,valid ,changeInstate ,label,type, placeHolder,name, value, onChange,errorAlert, regularExpression  }) => {
+export const InputsGenerate = (
+  { optionalField,
+    sameField,
+    valid,
+    changeInstate,
+    label,
+    type,
+    placeHolder,
+    name,
+    value,
+    onChange,
+    errorAlert,
+    regularExpression  
+  }) => {
 
  //validations to  see if there are regularexpresion   
     const validateInstate = () => {
     if (regularExpression) {
         if (regularExpression.test(value)) {
             changeInstate({ valid: true})
-            console.log('valid')
-       } else if(optionalField && value.length <= 0  ){
-            changeInstate({ valid: true})
-       } else {
-            changeInstate({ valid: false})
-            console.log('invalid')    
-        }
-   }
+            // console.log('valid')
+        } else if(optionalField && value.length <= 0  ){
+              changeInstate({ valid: true})
+        } else {
+              changeInstate({ valid: false})
+              // console.log('invalid')    
+          }
+   } else if (sameField) {
+            if (sameField === value) {
+              changeInstate({ valid: true})
+              console.log('valid')
+            } else if(optionalField && value.length <= 0  ){
+                  changeInstate({ valid: true})
+            } else {
+                  changeInstate({ valid: false})
+                  console.log('invalid')    
+          }
+    
+   } 
 }
+
    
   return (
 

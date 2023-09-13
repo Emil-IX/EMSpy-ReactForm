@@ -1,29 +1,32 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-
-
 import { useForm } from '../hooks/useForm'
 import { InputsGenerate } from '../components/inputsGenerate';
 import { SideBar } from '../components/SideBar';
 
 
-export const LoginForm= () => {
+export const RegisterFrom= () => {
     
 
    const initialState =  {
         email:"",
         user:"",
-       password:"",
+        password:"",
+        name:"",
+        tell:"",
+        repeatPassword: "",
       
 
     }
     //use for to create yours form fields
-     const {formState, setFormState , onInputChange, onResetForm, user,email, password} = useForm(initialState);
+     const {formState, setFormState , onInputChange, onResetForm, user,email, password, tell ,name  , repeatPassword} = useForm(initialState);
 
     // states for final validations
      const [Email, setEmail] = useState({ valid: null});
      const [User, setUser] = useState({ valid: null});
      const [Pasword, setPasword] = useState({ valid: null});
+     const [RepeatPasword, setRepeatPasword] = useState({ valid: null});
+     const [Name, setName] = useState({ valid: null});
+     const [Tell, setTell] = useState({ valid: null});
      const [formValid, setformValid] = useState(null)
      const [formValid2, setformValid2] = useState(null)
 
@@ -50,7 +53,10 @@ export const LoginForm= () => {
         if (
             User.valid &&
             Email.valid &&
-            Pasword.valid 
+            Pasword.valid &&
+            RepeatPasword.valid &&
+            Name.valid &&
+            Tell.valid
             
             ) {
 
@@ -58,6 +64,9 @@ export const LoginForm= () => {
             setUser({valid: null})
             setEmail({valid: null})
             setPasword({valid: null})
+            setRepeatPasword({valid: null})
+            setUser({valid: null})
+            setTell({valid: null})
             setformValid(true)
             clearAlert(setformValid);
             console.log('enviendo...')
@@ -101,7 +110,20 @@ export const LoginForm= () => {
                     errorAlert="User invalid, tray again"
                     
                 />
-
+                <InputsGenerate
+                    label="Name"
+                    type="text"
+                    placeHolder="Emsy"
+                    name="name"
+                    value={ name }
+                    onChange={ onInputChange }
+                    regularExpression={expretionss.name}
+                    changeInstate={setName}
+                    valid={Name.valid}
+                    errorAlert="Name invalid, tray again"
+                    
+                />
+                
                 <InputsGenerate
                     label="Email"
                     type="email"
@@ -129,6 +151,36 @@ export const LoginForm= () => {
                     errorAlert="Password invalid, tray again"
                     
                 />
+
+                <InputsGenerate
+                    label="Repeat password"
+                    type="password"
+                    placeHolder=""
+                    name="repeatPassword"
+                    value={ repeatPassword }
+                    onChange={ onInputChange }
+                    sameField={password}
+                    changeInstate={setRepeatPasword}
+                    valid={RepeatPasword.valid}
+                    errorAlert="Password is not the same, tray again"
+                    
+                />
+
+               
+
+                <InputsGenerate
+                    label="Tell"
+                    type="number"
+                    placeHolder="809-000-00000"
+                    name="tell"
+                    value={ tell }
+                    onChange={ onInputChange }
+                    regularExpression={expretionss.tell}
+                    changeInstate={setTell}
+                    valid={Tell.valid}
+                    errorAlert="Tell invalid, tray again"
+                    
+                />
             
                     
             { 
@@ -141,10 +193,8 @@ export const LoginForm= () => {
                 One or more fields are invalid
                 </div>
             }
-
                 <div className='d-flex'>
-                    <button type='submit' className='btn btn-info btn2'>Login</button>
-                   <Link className='btn btn-success btn2' to='/registerform' >Sign Up</Link>   
+                    <button type='submit' className='btn btn-info btn2'>Create Account</button>
                    
                 </div>
             </form>

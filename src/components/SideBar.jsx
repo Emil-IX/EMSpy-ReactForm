@@ -13,20 +13,27 @@ export const SideBar = () => {
               className={ ({isActive}) => `nav_links nav-link ${ isActive ? 'activeLink' : ''}` } 
               to='/' >
               Welcome
+              <hr />
               </NavLink>
 
-              <NavLink 
-              className={ ({isActive}) => `nav_links nav-link ${ isActive ? 'activeLink' : ''}` } 
-              to='/form' >
-              Email Send 
-              </NavLink>
-
+      
               <NavLink 
               className={ ({isActive}) => `nav_links nav-link ${ isActive ? 'activeLink' : ''}` } 
               to='/loginform' >
               Login Form 
               </NavLink>
 
+              <NavLink 
+              className={ ({isActive}) => `nav_links nav-link ${ isActive ? 'activeLink' : ''}` } 
+              to='/registerform' >
+              Register Form 
+              </NavLink>
+
+              <NavLink 
+              className={ ({isActive}) => `nav_links nav-link ${ isActive ? 'activeLink' : ''}` } 
+              to='/form' >
+              Email Send
+              </NavLink>
             </div>
 
         </div>

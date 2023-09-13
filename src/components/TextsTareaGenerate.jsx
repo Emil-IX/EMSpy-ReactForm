@@ -7,10 +7,8 @@ export const TextsTareaGenerate = ({valid, changeInstate ,label,type, placeHolde
     if (regularExpression) {
         if (regularExpression.test(value)) {
             changeInstate({ valid: true})
-            console.log('valid')
         }else {
             changeInstate({ valid: false})
-            console.log('invalid')
         }
     }
    }

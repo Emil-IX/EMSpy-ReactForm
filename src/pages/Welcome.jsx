@@ -13,7 +13,7 @@ export const Welcome = () => {
 
             <Link 
             className="btn  btn-outline-light btn2" 
-            to='/form'>Get start</Link>
+            to='/loginform'>Get start</Link>
             
         </div>
     </>
