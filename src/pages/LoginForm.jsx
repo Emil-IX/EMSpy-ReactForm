@@ -143,7 +143,7 @@ export const LoginForm= () => {
             }
 
                 <div className='d-flex'>
-                    <button type='submit' className='btn btn-info btn2'>Login</button>
+                    <button type='submit' className='btn btn-info btn2'>Sign In</button>
                    <Link className='btn btn-success btn2' to='/registerform' >Sign Up</Link>   
                    
                 </div>

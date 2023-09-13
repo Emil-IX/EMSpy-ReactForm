@@ -93,7 +93,7 @@ export const RegisterFrom= () => {
 
         <h1 className='title animate__animated animate__fadeInDown'>EMSpyForm</h1>
     
-        <div className='EMSform container  border border-5 animate__animated animate__fadeIn'>
+        <div className='EMSform container-sm  border border-5 animate__animated animate__fadeIn'>
 
             <form onSubmit={ onSubmit} className='row g-3 center align-item-center '>
 

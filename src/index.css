@@ -110,8 +110,7 @@ background-size: 30px 30px;
 }
 
 
-
-@media screen and (min-width: 826px){
+@media (min-width: 826px){
   
   .sidebar {
     max-width: 300px;
@@ -120,13 +119,21 @@ background-size: 30px 30px;
 
 }
 
-@media screen and (max-width: 825px){
+@media (max-width: 825px){
   
   .sidebar {
     min-width: 500px;
     text-align: center;
-    height: 45vh;
+    height: 45vh; 
     
   }
 
+  .EMSform {
+    text-align: center;
+  }
+
 } 
+
+
+
+/* prueba */
